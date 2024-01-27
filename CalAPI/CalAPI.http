@@ -1,0 +1,6 @@
+@CalAPI_HostAddress = http://localhost:5172
+
+GET {{CalAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

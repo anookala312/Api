@@ -7,5 +7,12 @@ namespace MyApp.Namespace
     [ApiController]
     public class CalculatorController : ControllerBase
     {
+        public string Test(string param){
+            return String.Concat("Hello ", param);
+        }
+        public string Get(){
+            return "Get Method";
+        }
+
     }
 }

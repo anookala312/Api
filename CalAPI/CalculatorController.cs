@@ -10,19 +10,27 @@ namespace MyApp.Namespace
     {
         [Route("{x}/{y}")]
 
-        public int Addition( int x, int y){   
-                int sum = x+y;
+        public decimal Add( decimal x, decimal y){   
+                decimal sum = x+y;
                 return sum;
         }
         
-        public int Substraction( int x, int y){   
-                int sub = x-y;
+        public decimal Subtract( decimal x, decimal y){   
+                decimal sub = x-y;
                 return sub;
         }
         
-        public int Muntiplication( int x, int y){   
-                int multiply = x*y;
+        public decimal Multiply( decimal x, decimal y){   
+                decimal multiply = x*y;
                 return multiply;
+        }
+        public decimal Divide( decimal x, decimal y){   
+                decimal divisor = x/y;
+                return divisor;
+        }
+        public decimal Modulo( decimal x, decimal y){   
+                decimal reminder = x%y;
+                return reminder;
         }
 
     }

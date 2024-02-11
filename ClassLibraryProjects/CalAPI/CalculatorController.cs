@@ -1,9 +1,9 @@
 using System.Runtime.InteropServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UtilityLibraries;
 
 namespace MyApp.Namespace
-using UtilityLibraries;
 
 {
     [Route("[controller]/[action]")]

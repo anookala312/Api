@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringLibrary", "StringLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringLibraryTest", "StringLibraryTest\StringLibraryTest.csproj", "{DEF7AD9C-C976-4CCE-ADC0-F8FD217F9AA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalAPI", "CalAPI\CalAPI.csproj", "{DAD5B35F-0E13-414F-896F-6B17C55C5D24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{DEF7AD9C-C976-4CCE-ADC0-F8FD217F9AA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEF7AD9C-C976-4CCE-ADC0-F8FD217F9AA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEF7AD9C-C976-4CCE-ADC0-F8FD217F9AA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAD5B35F-0E13-414F-896F-6B17C55C5D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD5B35F-0E13-414F-896F-6B17C55C5D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD5B35F-0E13-414F-896F-6B17C55C5D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD5B35F-0E13-414F-896F-6B17C55C5D24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -118,7 +118,7 @@ public class CalLibraryTests
     {
         CalLibrary calLibrary = new CalLibrary();
         decimal result = calLibrary.Multiply(1.234m, 2.345m);
-        Assert.AreEqual(2.887m, result, 0.001m, $"Expected: 2.887; Actual: {result}");
+        Assert.AreEqual(2.894m, result, 0.001m, $"Expected: 2.894; Actual: {result}");
     }
 
     [TestMethod]
@@ -158,7 +158,7 @@ public class CalLibraryTests
     {
         CalLibrary calLibrary = new CalLibrary();
         decimal result = calLibrary.Divide(3.579m, 2.345m);
-        Assert.AreEqual(1.529m, result, 0.001m, $"Expected: 1.529; Actual: {result}");
+        Assert.AreEqual(1.526m, result, 0.001m, $"Expected: 1.526; Actual: {result}");
     }
 
     [TestMethod]

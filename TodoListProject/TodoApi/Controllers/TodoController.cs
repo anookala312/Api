@@ -1,5 +1,8 @@
+using System.Runtime.InteropServices;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using TodolistModelsClassLibrary.Models;
-using TodoApi
+using TodoApi;
 
 [Route("api/[controller]/[action]")]
 [ApiController]
@@ -31,7 +34,7 @@ public class TodoController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create([FromBody] ToDoItem todoItem)
+    public IActionResult Create([FromBody] TodoItem todoItem)
     {
         _dbContext.TodoItems.Add(todoItem);
         _dbContext.SaveChanges();

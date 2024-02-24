@@ -1,9 +1,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Shared.Models;
-using ShoppingApi.Data;
+using shoppingLibrary.Models;
+using shoppingLibrary.Data;
 
+namespace shoppingLibrary.Services
+{
 public class ProductService : IProductService
 {
     private readonly AppDataContext _context;
@@ -15,12 +17,12 @@ public class ProductService : IProductService
 
     public async Task<IEnumerable<ProductModel>> GetAllProductsAsync()
     {
-        return await _context.Products.ToListAsync();
+        return await _context.Products.AnyAsyncEnumerable().ToListAsync();
     }
 
     public async Task<IEnumerable<ProductModel>> GetProductsByCategoryIdAsync(int categoryId)
     {
-        return await _context.Products.Where(p => p.CategoryId == categoryId).ToListAsync();
+        return await _context.Products.Where(p => p.CategoryId == categoryId).AnyAsyncEnumerable().ToListAsync();
     }
 
     public async Task AddProductAsync(ProductModel product)
@@ -44,4 +46,5 @@ public class ProductService : IProductService
             await _context.SaveChangesAsync();
         }
     }
+}
 }

@@ -1,8 +1,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Shared.Models;
-using ShoppingApi.Data;
+using shoppingLibrary.Models;
+using shoppingLibrary.Data;
+
+namespace shoppingLibrary.Services
+{
 
 public class ShoppingCartService : IShoppingCartService
 {
@@ -15,7 +18,7 @@ public class ShoppingCartService : IShoppingCartService
         _userManager = userManager;
     }
 
-    public async Task<ShoppingCartModel> GetShoppingCartAsync(string userEmail)
+    public async Task<ShoppingcartModel> GetShoppingCartAsync(string userEmail)
     {
         var user = await _userManager.FindByEmailAsync(userEmail);
         if (user == null)
@@ -23,7 +26,7 @@ public class ShoppingCartService : IShoppingCartService
             return null; // Handle unauthorized access
         }
 
-        var shoppingCart = await _context.ShoppingCarts
+        var shoppingCart = await _context.Shoppingcarts
             .Include(sc => sc.Products)
             .FirstOrDefaultAsync(sc => sc.UserEmail == userEmail);
 
@@ -34,12 +37,12 @@ public class ShoppingCartService : IShoppingCartService
     {
         if (!await UserHasExistingCartAsync(userEmail))
         {
-            var newCart = new ShoppingCartModel
+            var newCart = new ShoppingcartModel
             {
                 UserEmail = userEmail
             };
 
-            _context.ShoppingCarts.Add(newCart);
+            _context.Shoppingcarts.Add(newCart);
             await _context.SaveChangesAsync();
         }
     }
@@ -85,6 +88,7 @@ public class ShoppingCartService : IShoppingCartService
 
     public async Task<bool> UserHasExistingCartAsync(string userEmail)
     {
-        return await _context.ShoppingCarts.AnyAsync(sc => sc.UserEmail == userEmail);
+        return await _context.Shoppingcarts.AnyAsync(sc => sc.UserEmail == userEmail);
     }
+}
 }

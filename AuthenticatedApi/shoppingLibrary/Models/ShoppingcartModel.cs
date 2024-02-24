@@ -1,13 +1,14 @@
 namespace shoppingLibrary.Models
 {
-    public class Shoppingcart
+    public class ShoppingcartModel
     {
-        [Key]
         public int ShoppingcartId { get; set; }
 
         public int UserID { get; set; }
 
-        public List<Product> Product { get; set; } = new List<Product>();
+        public string UserEmail { get; set; }
+
+        public List<ProductModel> Products { get; set; } = new List<ProductModel>();
 
     }
 }

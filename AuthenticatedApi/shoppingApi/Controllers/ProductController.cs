@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using shoppingLibrary.Data;
 using shoppingLibrary.Models;
+using shoppingLibrary.Services;
 
 namespace shoppingApi.Controllers
 {

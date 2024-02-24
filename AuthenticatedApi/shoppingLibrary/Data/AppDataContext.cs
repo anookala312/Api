@@ -3,15 +3,16 @@ using shoppingLibrary.Models;
 
 
 namespace shoppingLibrary.Data
-
-public class AppDataContext : DbContext
 {
-    public AppDataContext(DbContextOptions<AppDataContext> options) 
-        : base(options) 
-        { }
+    public class AppDataContext : DbContext
+    {
+        public AppDataContext(DbContextOptions<AppDataContext> options) 
+            : base(options) 
+            { }
 
-    public DbSet<CategotyModel> Categories { get; set;}
-    public DbSet<ProductModel> Products { get; set;}
-    public DbSet<ShoppingcartModel> Shoppingcarts { get; set;}
+        public DbSet<CategoryModel> Categories { get; set;}
+        public DbSet<ProductModel> Products { get; set;}
+        public DbSet<ShoppingcartModel> Shoppingcarts { get; set;}
 
+    }
 }

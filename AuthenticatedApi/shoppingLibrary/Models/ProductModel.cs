@@ -1,8 +1,7 @@
 namespace shoppingLibrary.Models
 {
-    public class Product
+    public class ProductModel
     {
-        [Key]
         public int ProductId { get; set; }
 
         public int ProductPrice { get; set; }
@@ -13,7 +12,7 @@ namespace shoppingLibrary.Models
 
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public CategoryModel Category { get; set; }
 
     }
 }

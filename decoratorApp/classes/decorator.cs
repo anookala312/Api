@@ -1,1 +1,15 @@
-public class Decorator : Icomponent<>
+namespace decoratorApp;
+abstract class Decorator<T> : IComponent<T>
+{
+    protected IComponent<T> component;
+
+    public Decorator(IComponent<T> component)
+    {
+        this.component = component;
+    }
+
+    public virtual T GetText()
+    {
+        return component.GetText();
+    }
+}

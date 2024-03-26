@@ -7,6 +7,6 @@ class PlainDecorator : Decorator<string>
 
     public override string GetText()
     {
-        return "(PlainText) " + base.GetText();
+        return "I love " + base.GetText();
     }
 }

@@ -1,11 +1,11 @@
-﻿namespace WeatherStation.WeatherApp;
-using WeatherStation.ClassLibrary;
+﻿using WeatherStation.ClassLibrary;
 
-var weatherdata = new WeatherData<string>();
-var obs1 = new CurrentConditionalDisplay();
+var data = new WeatherData<string>();
+var obs1 = new CurrentConditionsDisplay();
 
-weatherdata.WeatherData(obs1);
+data.Subscribe(obs1);
 
-weatherdata.Value = Console.ReadLine() ?? "";
+
+data.Value = Console.ReadLine() ?? "";
 
 Console.ReadLine();

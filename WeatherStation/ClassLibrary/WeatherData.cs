@@ -10,7 +10,7 @@ public class WeatherData<T>
     {
         get
         {
-            return _value
+            return _value;
         }
         set
         {
@@ -19,7 +19,7 @@ public class WeatherData<T>
             Notify(_value);
         }
     }
-    public void Subscribe(IDisplay subscriber)
+    public void Subscribe(IDisplay<T> subscriber)
     {
         if (!subscribers.Contains(subscriber))
         {
@@ -27,7 +27,7 @@ public class WeatherData<T>
         }
     }     
 
-    public void UnSubscribe(IDisplay subscriber)
+    public void UnSubscribe(IDisplay<T> subscriber)
     {
         if (subscribers.Contains(subscriber))
         {

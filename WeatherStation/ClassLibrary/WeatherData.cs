@@ -1,45 +1,63 @@
-﻿namespace WeatherStation.ClassLibrary;
+﻿using System.Collections.Generic;
 using WeatherStation.ClassLibrary.Interfaces;
 
-public class WeatherData<T>
+namespace WeatherStation.ClassLibrary
 {
-    IList<IDisplay<T>> subscribers = new List<IDisplay<T>>();
-
-    private T _value;
-    public T Value
+    public class WeatherData<T>
     {
-        get
-        {
-            return _value;
-        }
-        set
-        {
-            _value = value;
+        private static WeatherData<T>? instance;
+        private IList<IDisplay<T>> subscribers = new List<IDisplay<T>>();
 
-            Notify(_value);
-        }
-    }
-    public void Subscribe(IDisplay<T> subscriber)
-    {
-        if (!subscribers.Contains(subscriber))
-        {
-            subscribers.Add(subscriber);
-        }
-    }     
+        private WeatherData() { }
 
-    public void UnSubscribe(IDisplay<T> subscriber)
-    {
-        if (subscribers.Contains(subscriber))
+        public static WeatherData<T> Instance
         {
-            subscribers.Remove(subscriber);
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new WeatherData<T>();
+                }
+                return instance;
+            }
         }
-    }   
 
-    private void Notify(T message)
-    {
-        foreach( var sub in subscribers)
+        private T? _value;
+        public T? Value
         {
-            sub.Display(message);
+            get
+            {
+                return _value;
+            }
+            set
+            {
+                _value = value;
+                Notify(_value);
+            }
+        }
+
+        public void Subscribe(IDisplay<T> subscriber)
+        {
+            if (!subscribers.Contains(subscriber))
+            {
+                subscribers.Add(subscriber);
+            }
+        }
+
+        public void UnSubscribe(IDisplay<T> subscriber)
+        {
+            if (subscribers.Contains(subscriber))
+            {
+                subscribers.Remove(subscriber);
+            }
+        }
+
+        private void Notify(T? message)
+        {
+            foreach (var sub in subscribers)
+            {
+                sub.Display(message);
+            }
         }
     }
 }

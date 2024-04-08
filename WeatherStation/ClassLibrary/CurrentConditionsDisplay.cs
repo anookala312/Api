@@ -2,10 +2,18 @@ namespace WeatherStation.ClassLibrary;
 
 using WeatherStation.ClassLibrary.Interfaces;
 
-public class CurrentConditionsDisplay : IDisplay<string>
+
+public class CurrentConditionsDisplay : IDisplay<int>
 {
-    public void Display(string param)
+    public void Display(int param) 
     {
-        Console.WriteLine(param+ "is the max Temp" );
+        var temperatureString = param.ToString() + "°C";
+        var formattedMessage = $"{DateTime.Now:yyyy-MM-dd HH:mm}: Today's temp outside is {temperatureString}";
+        Console.WriteLine(formattedMessage); 
+    }
+
+    public void Display(string message) 
+    {
+        Console.WriteLine(message);
     }
 }

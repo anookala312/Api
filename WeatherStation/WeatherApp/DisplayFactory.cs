@@ -2,6 +2,14 @@
 using System;
 
 namespace WeatherStation.ClassLibrary
+{
+public enum DisplayType
+    {
+        CurrentConditions,
+        Forecast,
+        Statistics
+    }
+
 /// <summary>
 /// Represents a factory for creating display objects.
 /// </summary>
@@ -26,4 +34,5 @@ public class DisplayFactory
                 throw new ArgumentException("Invalid display type");
         }
     }
+}
 }

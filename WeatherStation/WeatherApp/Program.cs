@@ -1,9 +1,11 @@
 using WeatherStation.ClassLibrary.Interfaces;
 using System;
 
-namespace WeatherStation.ClassLibrary/// <summary>
-                                     /// Represents the main program.
-                                     /// </summary>
+namespace WeatherStation.ClassLibrary
+{
+/// <summary>
+/// Represents the main program.
+/// </summary>
 class Program
 {
     /// <summary>
@@ -29,4 +31,5 @@ class Program
 
         Console.ReadLine();
     }
+}
 }

@@ -2,6 +2,7 @@
 using WeatherStation.ClassLibrary.Interfaces;
 
 namespace WeatherStation.ClassLibrary
+{
 /// <summary>
 /// A class representing weather data.
 /// </summary>
@@ -74,4 +75,5 @@ public class WeatherData<T>
             sub.Display(message);
         }
     }
+}
 }

@@ -2,9 +2,29 @@
 
 public class Split
 {
-    splitamount(int amt, int group)
+    decimal splitamount(Decimal price, int patrons)
     {
-        return amt/group;
+        return price/patrons;
     }
-    
+    Dictionary<string, decimal> tipCalculator(Dictionary<string, decimal> individualAmt, float tipPercent)
+    {
+        Dictionary<string, decimal> tipAmounts = new Dictionary<string, decimal>();
+        decimal price =0m;
+        foreach (var ind in individualAmt)
+        {
+            decimal price += ind.Value;
+        }
+        foreach (var ind in individualAmt)
+        {
+            decimal totalTip = price*tipPercent;
+            decimal indTipAmt = (ind.Value/price)*totalTip;
+            tipAmounts.Add(ind.Key, indTipAmt);
+        }
+        return tipAmounts;
+    }
+    decimal indTipAmt(decimal price, int patrons, decimal tipPercent)
+    {
+        return  (price*tipPercent)/patrons;
+    }
+
 }

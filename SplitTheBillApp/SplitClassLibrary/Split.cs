@@ -2,7 +2,7 @@
 
 public class Split
 {
-    decimal splitamount(Decimal price, int patrons)
+    public static decimal splitamount(Decimal price, int patrons)
     {
         if (patrons <= 0)
         {
@@ -38,9 +38,21 @@ public class Split
 
         return tipAmounts;
     }
-    decimal indTipAmt(decimal price, int patrons, decimal tipPercent)
+    public static decimal indTipAmt(decimal price, int patrons, decimal tipPercent)
     {
-        return  (price*tipPercent)/patrons;
+        if (tipPercentage < 0)
+        {
+            throw new ArgumentException("Tip percentage cannot be negative.", nameof(tipPercentage));
+        }
+
+        if (price <= 0 || patrons <= 0)
+        {
+            return 0m;
+        }
+
+        decimal tipAmount = price * (tipPercentage / 100);
+        return = tipAmount / patrons;
+
     }
 
 }

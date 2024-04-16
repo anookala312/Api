@@ -49,7 +49,8 @@ public class splitTest
         Assert.Throws<DivideByZeroException>(() => splitamount(price, patrons));
     }
 
-    public void TipCalculator_WithValidInputs_ShouldReturnCorrectValues()
+    [TestMethod]
+    public void Test_TipCalculator_WithValidInputs_ShouldReturnCorrectValues()
     {
         // Arrange
         Dictionary<string, decimal> individualAmt = new Dictionary<string, decimal>
@@ -70,8 +71,8 @@ public class splitTest
         Assert.AreEqual(4.5m, result["Charlie"]);
     }
 
-    [Test]
-    public void TipCalculator_WithEmptyDictionary_ShouldReturnEmptyDictionary()
+    [TestMethod]
+    public void Test_TipCalculator_WithEmptyDictionary_ShouldReturnEmptyDictionary()
     {
         // Arrange
         Dictionary<string, decimal> individualAmt = new Dictionary<string, decimal>();
@@ -84,8 +85,8 @@ public class splitTest
         Assert.IsEmpty(result);
     }
 
-    [Test]
-    public void TipCalculator_WithZeroTipPercentage_ShouldReturnZeroTip()
+    [TestMethod]
+    public void Test_TipCalculator_WithZeroTipPercentage_ShouldReturnZeroTip()
     {
         // Arrange
         Dictionary<string, decimal> individualAmt = new Dictionary<string, decimal>
@@ -102,6 +103,48 @@ public class splitTest
         Assert.AreEqual(2, result.Count);
         Assert.AreEqual(0.0m, result["Alice"]);
         Assert.AreEqual(0.0m, result["Bob"]);
+    }
+
+    [TestMethod]
+    public void Test_indTipAmt_WithValidInputs_ReturnsCorrectTipPerPerson()
+    {
+        // Arrange
+        decimal price = 100.00m;
+        int patrons = 5;
+        decimal tipPercentage = 15;
+
+        // Act
+        decimal tipPerPerson = indTipAmt(price, patrons, tipPercentage);
+
+        // Assert
+        Assert.AreEqual(3.00m, tipPerPerson); // Assuming tip is calculated correctly
+    }
+
+    [TestMethod]
+    public void Test_indTipAmt_PriceIsZero_ReturnsZeroTipPerPerson()
+    {
+        // Arrange
+        decimal price = 0m;
+        int patrons = 5;
+        decimal tipPercentage = 15;
+
+        // Act
+        decimal tipPerPerson = indTipAmt(price, patrons, tipPercentage);
+
+        // Assert
+        Assert.AreEqual(0m, tipPerPerson);
+    }
+
+    [TestMethod]
+    public void Test_indTipAmt_NegativeTipPercentage_ThrowsArgumentException()
+    {
+        // Arrange
+        decimal price = 100.00m;
+        int patrons = 5;
+        decimal tipPercentage = -5; // Negative tip percentage
+
+        // Act & Assert
+        Assert.Throws<ArgumentException>(() => indTipAmt(price, patrons, tipPercentage));
     }
 
 }

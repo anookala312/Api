@@ -38,7 +38,7 @@ public class Split
 
         return tipAmounts;
     }
-    public static decimal indTipAmt(decimal price, int patrons, decimal tipPercent)
+    public static decimal indTipAmt(decimal price, int patrons, decimal tipPercentage)
     {
         if (tipPercentage < 0)
         {
@@ -51,7 +51,7 @@ public class Split
         }
 
         decimal tipAmount = price * (tipPercentage / 100);
-        return = tipAmount / patrons;
+        return tipAmount / patrons;
 
     }
 

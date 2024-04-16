@@ -1,10 +1,15 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UtilityLibraries;
+namespace SplitClassLibrary;
+
 namespace TestLibrary;
 
 [TestClass]
-public class UnitTest1
+public class splitamounUnitTest1
 {
     [TestMethod]
-    public void TestMethod1()
+    public void splitamountTest()
     {
+
     }
 }

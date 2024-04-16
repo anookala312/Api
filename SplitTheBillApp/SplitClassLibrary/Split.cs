@@ -17,7 +17,8 @@ public class Split
         foreach (var ind in individualAmt)
         {
             decimal totalTip = price*tipPercent;
-            decimal indTipAmt = (ind.Value/price)*totalTip;
+            decimal weigth = ind.Value/price;
+            decimal indTipAmt = weight*totalTip;
             tipAmounts.Add(ind.Key, indTipAmt);
         }
         return tipAmounts;

@@ -33,13 +33,13 @@ public class UnitTest1
     public void TestTriangleArea()
     {
     // Arrange
-    var triangle = new Triangle(8,6);
+    var triangle = new Triangle(8,6,10);
 
     // Act
     var result = triangle.CalculateArea();
 
     // Assert
-    Assert.AreEqual(15, result);
+    Assert.AreEqual(24, result);
     }
     [TestMethod]
     public void TestSquarePerimeter()
@@ -70,7 +70,7 @@ public class UnitTest1
     public void TestTrianglePerimeter()
     {
     // Arrange
-    var triangle = new Triangle(8,6);
+    var triangle = new Triangle(8,6,10);
 
     // Act
     var result = triangle.CalculateArea();

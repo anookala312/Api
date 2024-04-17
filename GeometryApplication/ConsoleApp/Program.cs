@@ -27,7 +27,7 @@ switch (num)
         }
         else
         {
-            Console.WriteLine("Not Accessible")
+            Console.WriteLine("Not Accessible");
         }
      case "2":
         if (await featureManager.IsEnabledAsync("Rectangle"))
@@ -41,7 +41,7 @@ switch (num)
         }
         else
         {
-            Console.WriteLine("Not Accessible")
+            Console.WriteLine("Not Accessible");
         }
     case "3":
         if (await featureManager.IsEnabledAsync("Triangle"))
@@ -57,6 +57,6 @@ switch (num)
         }
         else
         {
-            Console.WriteLine("Not Accessible")
+            Console.WriteLine("Not Accessible");
         }
 }
